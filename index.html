@@ -19,9 +19,21 @@
 
   gtag('config', 'AW-17882111576');
 </script>
-  <!-- Event snippet for 連絡先 conversion page -->
+ <!-- Event snippet for 連絡先 conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 <script>
-  gtag('event', 'conversion', {'send_to': 'AW-17882111576/lY-oCPGbo-gbENi87c5C'});
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17882111576/lY-oCPGbo-gbENi87c5C',
+      'event_callback': callback
+  });
+  return false;
+}
 </script>
   
 <body>
@@ -48,4 +60,5 @@
   </main>
 </body>
 </html>
+
 
